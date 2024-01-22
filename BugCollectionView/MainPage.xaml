@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="BugCollectionView.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <VerticalStackLayout Padding="30,0" Spacing="25">
+        <CollectionView x:Name="collection"
+                        Grid.Row="1"
+                        SelectionChanged="OnCollectionViewSelectionChanged"
+                        SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout HorizontalItemSpacing="12"
+                                 Orientation="Vertical"
+                                 Span="2"
+                                 VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="4"
+                            BackgroundColor="White"
+                            Stroke="Gray"
+                            StrokeShape="RoundRectangle 12"
+                            StrokeThickness="1">
+                        <Grid RowDefinitions="80,40">
+
+                            <Label Grid.Row="1"
+                                   FontFamily="SemiBold"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Text="aaaa"
+                                   VerticalOptions="Center" />
+                        </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal" />
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Blue" />
+                                        <Setter Property="Stroke" Value="Red" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+
+</ContentPage>
